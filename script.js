@@ -105,9 +105,11 @@ const editPartnerPopup = (id) => {
 
 			console.log(displayList(persons));
 
+			// Destroy the form
 			destroyForm(form);
 		}, { once: true });
 
+		// Cancel button
 		window.addEventListener('click', (e) => {
 			const cancelBtn = e.target.closest('.cancel');
 			if (cancelBtn) {
@@ -136,10 +138,10 @@ const deletePartner = (e) => {
 };
 
 const deletePopup = async (id) => {
-	// Finding the person by if
+	// Finding the person by id
 	const findPerson = persons.find(person => person.id === id);
 
-	// create confirmation popup here
+	// confirmation delete
 	return new Promise(async function (resolve) {
 		const deletedPartner = document.createElement("form");
 		deletedPartner.classList.add('form')
